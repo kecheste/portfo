@@ -12,9 +12,13 @@ h3 {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: 0;
 }
 nav h3 {
   font-size: 2em;
+  margin: 0;
+  margin-bottom: 20px;
 }
 nav h3:hover {
   color: white;
@@ -93,8 +97,10 @@ main {
   letter-spacing: 1.2px;
 }
 
-.left button {
+.left .button {
+  text-decoration: none;
   font-size: 1em;
+  font-weight: 600;
   padding: 25px 50px;
   margin: 50px auto;
   margin-left: 0;
@@ -104,7 +110,7 @@ main {
   transition: 300ms ease-in-out;
 }
 
-.left button:hover {
+.left .button:hover {
   background-color: rgb(255, 24, 178);
   cursor: pointer;
 }
@@ -211,7 +217,7 @@ footer {
   .left p {
     width: 100%;
   }
-  .left button {
+  .left .button {
     margin: 30px auto;
   }
   .right {
