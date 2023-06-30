@@ -233,3 +233,59 @@ footer {
     border: none;
   }
 }
+
+@media (max-width: 460px) {
+  main {
+    width: 100%;
+    margin: 2px 0;
+  }
+  nav h3 {
+    font-size: 1.3em;
+  }
+  .left h2 {
+    font-size: 0.5em;
+  }
+  .left h1 {
+    font-size: 1.2em;
+  }
+  .left p {
+    font-size: 0.6em;
+  }
+  .left .button {
+    font-size: 0.7em;
+    padding: 10px 15px;
+  }
+  .right img {
+    width: 100%;
+  }
+  footer {
+    width: 100%;
+  }
+  .title h1 {
+    font-size: 1.2em;
+    margin-bottom: 50px;
+  }
+  .title .location {
+    font-size: 0.6em;
+  }
+  .title .email {
+    font-size: 0.8em;
+  }
+  .title .phone {
+    font-size: 0.6em;
+  }
+  .title ul {
+    max-width: 50%;
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 320px) {
+  .title ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .title ul a {
+    margin-top: 5px;
+  }
+}
