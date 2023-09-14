@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
@@ -11,10 +9,10 @@ export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
+  const [delta, setDelta] = useState(200 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["Web Developer", "MERN Stack", "Graphics Designer"];
-  const period = 2000;
+  const toRotate = ["Software Engineer", "Web Designer", "Graphics Designer"];
+  const period = 1000;
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -24,7 +22,7 @@ export const Banner = () => {
     return () => {
       clearInterval(ticker);
     };
-  }, [delta]);
+  }, [text]);
 
   const tick = () => {
     let i = loopNum % toRotate.length;
@@ -67,11 +65,11 @@ export const Banner = () => {
                 >
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>
-                    {`Hi! I'm Abenezer Tesfaye.`}{" "}
+                    {`Hi! I'm Abenezer Tesfaye. `}{" "}
                     <span
                       className="txt-rotate"
                       dataPeriod="1000"
-                      data-rotate='[ "Web Developer", "MERN Stack", "Graphics Designer" ]'
+                      data-rotate='[ "Software Engineer", "Web Designer", "Graphics Designer" ]'
                     >
                       <span className="wrap">{text}</span>
                     </span>
