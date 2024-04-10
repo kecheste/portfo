@@ -23,6 +23,27 @@ function Stack() {
                 </div>
                 <div className="item">
                   <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg"
+                    alt="Image"
+                  />
+                  <h5>NextJs</h5>
+                </div>
+                <div className="item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg"
+                    alt="Image"
+                  />
+                  <h5>Wordpress</h5>
+                </div>
+                <div className="item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                    alt="Image"
+                  />
+                  <h5>Flutter</h5>
+                </div>
+                <div className="item">
+                  <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
                     alt="Image"
                   />
@@ -30,10 +51,10 @@ function Stack() {
                 </div>
                 <div className="item">
                   <img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
                     alt="Image"
                   />
-                  <h5>Django</h5>
+                  <h5>Spring</h5>
                 </div>
                 <div className="item">
                   <img
@@ -41,6 +62,13 @@ function Stack() {
                     alt="Image"
                   />
                   <h5>Matlab</h5>
+                </div>
+                <div className="item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg"
+                    alt="Image"
+                  />
+                  <h5>Java</h5>
                 </div>
                 <div className="item">
                   <img
@@ -65,10 +93,24 @@ function Stack() {
                 </div>
                 <div className="item">
                   <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-plain.svg"
+                    alt="Image"
+                  />
+                  <h5>Dart</h5>
+                </div>
+                <div className="item">
+                  <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
                     alt="Image"
                   />
                   <h5>MongoDB</h5>
+                </div>
+                <div className="item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                    alt="Image"
+                  />
+                  <h5>PostgreSQL</h5>
                 </div>
                 <div className="item">
                   <img
@@ -97,6 +139,20 @@ function Stack() {
                     alt="Image"
                   />
                   <h5>Redux</h5>
+                </div>
+                <div className="item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                    alt="Image"
+                  />
+                  <h5>Docker</h5>
+                </div>
+                <div className="item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg"
+                    alt="Image"
+                  />
+                  <h5>Kubernetes</h5>
                 </div>
                 <div className="item">
                   <img
