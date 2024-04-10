@@ -85,6 +85,14 @@ select:focus {
   }
 }
 
+@media (max-width: 600px) {
+  .header-img {
+    width: 400px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 p.success {
   color: green;
 }
@@ -191,7 +199,6 @@ span.navbar-text {
   color: #121212;
 }
 .header-img {
-  width: 614px;
   background-size: contain;
   background-position: center;
 }
