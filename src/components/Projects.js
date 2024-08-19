@@ -14,24 +14,25 @@ import TrackVisibility from "react-on-screen";
 export const Projects = () => {
   const projects = [
     {
-      title: "Monty",
+      title: "Gebeya",
       description:
-        "Monty is a language that aims to close the gap between scripting and programming languages.",
+        "Gebeya is an e-commerece website, built with Next.js and Sanity.io with Stripe payment integration.",
       imgUrl: projImg1,
-      url: "",
+      url: "https://gebeya-market.vercel.app/",
     },
     {
       title: "Yelp Camp",
-      description: "A project to post and review Campgrounds.",
+      description:
+        "A review based campground website, built with Next.js, Node.js and MongoDB.",
       imgUrl: projImg2,
-      url: "",
+      url: "https://yelp-camp-kohl.vercel.app/",
     },
     {
       title: "Farm-Hub",
       description:
         "A website to buy and sell fresh agricultural products, which has a Generative AI tool to enhance user experience.",
       imgUrl: projImg3,
-      url: "",
+      url: "https://farmer-hub.vercel.app/",
     },
     {
       title: "Selam Dating App",

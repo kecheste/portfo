@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
+import api from "../api";
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -12,6 +13,7 @@ export const Contact = () => {
     phone: "",
     message: "",
   };
+
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
@@ -26,15 +28,9 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
+    const response = await api.post("/contact", formDetails);
     setButtonText("Send");
-    let result = await response.json();
+    const result = await response.json();
     setFormDetails(formInitialDetails);
     if (result.code === 200) {
       setStatus({ succes: true, message: "Message sent successfully" });

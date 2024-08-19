@@ -78,6 +78,78 @@ select:focus {
   outline: none;
 }
 
+.three-rows {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.frontend {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  align-items: start;
+  gap: 15px;
+  border: 1px solid #6d6d6d;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.backend {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  align-items: start;
+  gap: 15px;
+  border: 1px solid #6d6d6d;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.tools {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  align-items: start;
+  gap: 15px;
+  border: 1px solid #6d6d6d;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.stacks-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.stack-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #979797;
+}
+
+.stack-title:hover {
+  color: #fff;
+}
+
+.title {
+  align-self: center;
+  margin-top: 5px;
+}
+
+.title h4 {
+  font-size: 25px;
+  font-weight: 500;
+  color: #cccccc;
+}
+
 @media (min-width: 1700px) {
   main .container {
     max-width: 100%;
@@ -90,6 +162,19 @@ select:focus {
     width: 400px;
     margin: 0;
     padding: 0;
+  }
+  .three-rows {
+    flex-direction: column;
+    align-items: center;
+  }
+  .frontend {
+    width: 100%;
+  }
+  .backend {
+    width: 100%;
+  }
+  .tools {
+    width: 100%;
   }
 }
 
