@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Container, Row, Col, Tab } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
+import ProjectCard from "./ProjectCard";
 import projImg1 from "../assets/img/project-img1.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 import projImg5 from "../assets/img/project-img5.png";
 import projImg6 from "../assets/img/project-img6.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
-import "animate.css";
-import TrackVisibility from "react-on-screen";
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../utils/motion";
+import { styles } from "../styles";
+import SectionWrapper from "../hoc/SectionWrapper.js";
 
-export const Projects = () => {
+const Projects = () => {
   const projects = [
     {
       title: "Gebeya",
@@ -19,6 +19,7 @@ export const Projects = () => {
         "Gebeya is an e-commerece website, built with Next.js and Sanity.io with Stripe payment integration.",
       imgUrl: projImg1,
       url: "https://gebeya-market.vercel.app/",
+      github: "https://github.com/kecheste/Gebeya",
     },
     {
       title: "Yelp Camp",
@@ -26,6 +27,7 @@ export const Projects = () => {
         "A review based campground website, built with Next.js, Node.js and MongoDB.",
       imgUrl: projImg2,
       url: "https://yelp-camp-kohl.vercel.app/",
+      github: "https://github.com/kecheste/YelpCamp",
     },
     {
       title: "Farm-Hub",
@@ -33,6 +35,7 @@ export const Projects = () => {
         "A website to buy and sell fresh agricultural products, which has a Generative AI tool to enhance user experience.",
       imgUrl: projImg3,
       url: "https://farmer-hub.vercel.app/",
+      github: "https://github.com/A2SV-Farmers/Farm",
     },
     {
       title: "Selam Dating App",
@@ -40,12 +43,14 @@ export const Projects = () => {
         "Selam dating is a modern dating mobile app, it's built with flutter and firebase.",
       imgUrl: projImg4,
       url: "",
+      github: "https://github.com/kecheste/Selam",
     },
     {
       title: "Nuun Branding",
       description: "I have created a portfolio website for Nuun Branding.",
       imgUrl: projImg5,
       url: "https://nuunbranding.com",
+      github: "/",
     },
     {
       title: "Zemen",
@@ -53,46 +58,47 @@ export const Projects = () => {
         "Zemen is a P2P e-commerce mobile app which have got over 1000 downloads on PlayStore already.",
       imgUrl: projImg6,
       url: "",
+      github: "https://github.com/kecheste/Zemen",
     },
   ];
 
   return (
-    <section className="project" id="projects">
-      <Container>
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
-                >
-                  <h2>Projects</h2>
-                  <br></br>
-                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                    <Tab.Content
-                      id="slideInUp"
-                      className={
-                        isVisible ? "animate__animated animate__slideInUp" : ""
-                      }
-                    >
-                      <Tab.Pane eventKey="first">
-                        <Row>
-                          {projects.map((project, index) => {
-                            return <ProjectCard key={index} {...project} />;
-                          })}
-                        </Row>
-                      </Tab.Pane>
-                    </Tab.Content>
-                  </Tab.Container>
-                </div>
-              )}
-            </TrackVisibility>
-          </Col>
-        </Row>
-      </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+    <section className="w-full m-0" id="work">
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} `}>My work</p>
+        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+      </motion.div>
+
+      <div className="w-full flex">
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        >
+          Following projects showcases my skills and experience through
+          real-world examples of my work. Each project is briefly described with
+          links to code repositories and live demos in it. It reflects my
+          ability to solve complex problems, work with different technologies,
+          and manage projects effectively.
+        </motion.p>
+      </div>
+      <div className="mt-20 gap-5 w-full flex flex-wrap items-center justify-center">
+        {projects.map((project, index) => {
+          return (
+            <ProjectCard
+              key={index}
+              index={index}
+              title={project.title}
+              description={project.description}
+              imgUrl={project.imgUrl}
+              url={project.url}
+              githubUrl={project.github}
+            />
+          );
+        })}
+      </div>
+      {/* <img className="background-image-right" src={colorSharp2}></img> */}
     </section>
   );
 };
+
+export default SectionWrapper(Projects, "Projects");
