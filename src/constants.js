@@ -15,7 +15,6 @@ import {
   git,
   figma,
   docker,
-  tesla,
   carrent,
   jobit,
   tripguide,
@@ -24,7 +23,7 @@ import {
 
 import alet from "./assets/img/alet.png";
 import icog from "./assets/img/images.png";
-import blue from "./assets/img/blue.png";
+import mini from "./assets/img/mini.png";
 
 export const navLinks = [
   {
@@ -133,26 +132,28 @@ const experiences = [
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Blue Ocean Creatives",
-    icon: blue,
+    title: "JavaScript Developer",
+    company_name: "miniExtensions",
+    icon: mini,
     iconBg: "#E6DEDD",
-    date: "Apr 2024 - Aug 2024",
+    date: "Apr 2024 - Jun 2024",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
+      "Designed web application front-end using HTML5, Bootstrap, Next.js, Vanilla JS, and jQuery.",
+      "Optimized a user-centric interface with React, JavaScript, HTML, and CSS, leading to a 30% increase in user engagement and a 20% improvement in page responsiveness.",
+      "Spearheaded the development of a robust backend infrastructure using Node.js and Express.js, resulting in a 30% improvement in API response times and overall system performance.",
     ],
   },
   {
-    title: "Software Engineer",
+    title: "MERN Stack Developer",
     company_name: "iCog Labs",
     icon: icog,
     iconBg: "#383E56",
-    date: "Aug 2024 - Oct 2024",
+    date: "Jun 2024 - Present",
     points: [
-      "Contributed to 2 massive projects with a 82% code quality standard. Optimized the RAG systems for better performance and implemented outlier detection, reducing error rates by 10%. Maintained 30+ unit and integration tests with 80% coverage using PyTest.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Led the development of MERN stack applications, employing MongoDB, Express.js, React (v17, v18), and Node.js for a seamless user experience.",
+      "Crafted single-page applications with React.js, resulting in a 20% improvement in user engagement.",
+      "Implemented responsive design principles using Bootstrap, Tailwind CSS, and CSS media queries for enhanced user interface adaptability, working on a total of 15 projects.",
+      "Enhanced user engagement by 20% through crafting single-page applications with React.js, utilizing Redux and React Router.",
     ],
   },
 ];
