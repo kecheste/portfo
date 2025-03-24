@@ -26,11 +26,16 @@ const Footer = () => {
           />
           <div className="flex items-center mb-2">
             <img src={mail} alt="mail" className="w-5 mr-2" />
-            <span>abenidevworking@gmail.com</span>
+            <a
+              href="mailto:abenidevworking@gmail.com"
+              className="hover:text-blue"
+            >
+              abenidevworking@gmail.com
+            </a>
           </div>
           <div className="flex items-center">
             <img src={phone} alt="phone" className="w-5 mr-2" />
-            <span>+251936501702</span>
+            <a href="tel:+251936501702">+251936501702</a>
           </div>
         </div>
         <div className="text-center md:text-right">
@@ -57,7 +62,7 @@ const Footer = () => {
               />
             </a>
           </div>
-          <p className="text-gray-400 text-sm">© 2024. All Rights Reserved.</p>
+          <p className="text-gray-400 text-sm">© 2025. All Rights Reserved.</p>
         </div>
       </div>
     </motion.footer>

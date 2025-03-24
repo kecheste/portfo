@@ -308,10 +308,10 @@ button:hover {
   );
 }
 
-a:hover {
+/* a:hover {
   color: rgba(13, 28, 48, 0.9);
   text-decoration: none;
-}
+} */
 
 .stack-title {
   text-align: center;

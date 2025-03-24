@@ -7,8 +7,10 @@ const router = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
+const FRONT_URL = process.env.FRONT_URL || "http://localhost:3000";
+
 const corsOptions = {
-  origin: process.env.FRONT_URL || "http://localhost:3000",
+  origin: FRONT_URL,
   methods: "GET,POST,PUT,DELETE",
   credentials: true,
   optionSuccessStatus: 200,
@@ -33,7 +35,7 @@ const transporter = nodemailer.createTransport({
 });
 
 router.post("/contact", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", FRONT_URL);
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Max-Age", "1800");
   res.setHeader("Access-Control-Allow-Headers", "content-type");
@@ -62,6 +64,11 @@ router.post("/contact", (req, res) => {
     .catch((err) => {
       console.error(err);
     });
+
+  return res.status(200).json({
+    success: true,
+    message: "Email sent successfully!",
+  });
 });
 
 const PORT = process.env.PORT || 5000;

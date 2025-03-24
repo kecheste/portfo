@@ -55,7 +55,10 @@ const Banner = () => {
   const currentColor = toRotate[loopNum % toRotate.length].color;
 
   return (
-    <section className="relative flex flex-col lg:flex-row items-center justify-between h-screen overflow-hidden">
+    <section
+      className="relative flex flex-col lg:flex-row items-center justify-between h-screen overflow-hidden"
+      id="about"
+    >
       <motion.div
         className="relative z-10 w-full md:w-1/2 h-1/2 lg:h-full flex items-center justify-center"
         initial={{ opacity: 0 }}

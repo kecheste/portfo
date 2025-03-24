@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import api from "../api";
 import SectionWrapper from "../hoc/SectionWrapper.js";
 import { styles } from "../styles";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn } from "../utils/motion";
 
 const Contact = () => {
   const formInitialDetails = {
@@ -16,7 +16,10 @@ const Contact = () => {
 
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
+  const [status, setStatus] = useState({
+    success: false,
+    message: "",
+  });
 
   const onFormUpdate = (category, value) => {
     setFormDetails({
@@ -28,13 +31,16 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
+
     try {
       const response = await api.post("/contact", formDetails);
-      const result = await response.json();
-      setButtonText("Send");
-      setFormDetails(formInitialDetails);
-      if (result.code === 200) {
+      console.log("Response below: ");
+
+      console.log(response);
+
+      if (response.status >= 200 || response.status < 300) {
         setStatus({ success: true, message: "Message sent successfully" });
+        setFormDetails(formInitialDetails);
       } else {
         setStatus({
           success: false,
@@ -42,12 +48,13 @@ const Contact = () => {
         });
       }
     } catch (error) {
-      setButtonText("Send");
       setStatus({
         success: false,
         message: "Network error, please try again later.",
       });
     }
+
+    setButtonText("Send");
   };
 
   return (
@@ -79,6 +86,7 @@ const Contact = () => {
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.1 }}
+              required
             />
             <motion.input
               type="text"
@@ -89,6 +97,7 @@ const Contact = () => {
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.2 }}
+              required
             />
             <motion.input
               type="email"
@@ -99,6 +108,7 @@ const Contact = () => {
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.3 }}
+              required
             />
             <motion.input
               type="tel"
@@ -109,6 +119,7 @@ const Contact = () => {
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.4 }}
+              required
             />
           </div>
           <motion.textarea
@@ -120,6 +131,7 @@ const Contact = () => {
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.5 }}
+            required
           ></motion.textarea>
           <motion.button
             type="submit"
