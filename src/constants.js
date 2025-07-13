@@ -24,6 +24,7 @@ import {
 import alet from "./assets/img/alet.png";
 import icog from "./assets/img/images.png";
 import mini from "./assets/img/mini.png";
+import tripbooka from "./assets/img/tripbooka.png";
 
 export const navLinks = [
   {
@@ -128,36 +129,52 @@ const experiences = [
     company_name: "Alet Technologies",
     icon: alet,
     iconBg: "#000000",
-    date: "Jan 2023 - April 2024",
+    date: "Jan 2023 – Apr 2024",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Contributed to 5 Github repositories, maintaining a 92% code accuracy rate and consistency in meeting deadlines across team projects Automated build processes on npm, reducing deployment times by 9 days for multiple projects Wrote and maintained 60+ unit tests using Jest, gaining a code coverage of 78%",
+      "Developed and maintained web applications using React.js and other modern technologies.",
+      "Collaborated with cross-functional teams including designers, product managers, and developers to build high-quality features.",
+      "Contributed to 5 GitHub repositories with a 92% code accuracy rate, consistently meeting deadlines across team projects.",
+      "Automated build processes using npm scripts, reducing deployment times by up to 9 days.",
+      "Wrote and maintained 60+ unit tests with Jest, achieving 78% overall code coverage.",
     ],
   },
   {
     title: "JavaScript Developer",
-    company_name: "miniExtensions",
+    company_name: "miniExtensions for Airtable",
     icon: mini,
-    iconBg: "#E6DEDD",
-    date: "Apr 2024 - Jun 2024",
+    iconBg: "#101010ff",
+    date: "Mar 2023 – Jun 2024",
     points: [
-      "Designed web application front-end using HTML5, Bootstrap, Next.js, Vanilla JS, and jQuery.",
-      "Optimized a user-centric interface with React, JavaScript, HTML, and CSS, leading to a 30% increase in user engagement and a 20% improvement in page responsiveness.",
-      "Spearheaded the development of a robust backend infrastructure using Node.js and Express.js, resulting in a 30% improvement in API response times and overall system performance.",
+      "Built reusable and type-safe UI components with React.js and TypeScript, enhancing maintainability and responsiveness.",
+      "Created interactive Airtable-driven features like custom forms, gallery views, and PDF export functionality.",
+      "Developed and optimized backend services using Node.js, Express.js, and Airtable APIs, improving scalability and system performance.",
+      "Wrote unit and integration tests using Jest and React Testing Library, boosting system reliability and reducing bug rates.",
     ],
   },
   {
-    title: "MERN Stack Developer",
+    title: "Software Developer Intern",
     company_name: "iCog Labs",
     icon: icog,
-    iconBg: "#383E56",
-    date: "Jun 2024 - Present",
+    iconBg: "#ffffffff",
+    date: "May 2024 – Oct 2024",
     points: [
-      "Led the development of MERN stack applications, employing MongoDB, Express.js, React (v17, v18), and Node.js for a seamless user experience.",
-      "Crafted single-page applications with React.js, resulting in a 20% improvement in user engagement.",
-      "Implemented responsive design principles using Bootstrap, Tailwind CSS, and CSS media queries for enhanced user interface adaptability, working on a total of 15 projects.",
-      "Enhanced user engagement by 20% through crafting single-page applications with React.js, utilizing Redux and React Router.",
+      "Collaborated on AI-powered applications, building responsive interfaces using React.js and Next.js.",
+      "Integrated frontend dashboards with machine learning systems, enabling users to interact with NLP and computer vision services.",
+      "Worked in Agile sprints with cross-functional teams, delivering production-ready features on time.",
+      "Shipped client-facing portals and admin panels for AI applications, ensuring performance and usability.",
+    ],
+  },
+  {
+    title: "Fullstack Developer",
+    company_name: "TripBooka (Upwork Contract)",
+    icon: tripbooka,
+    iconBg: "#000000ff",
+    date: "Nov 2024 – Jun 2025",
+    points: [
+      "Developed and maintained core features of a lead management system using Next.js and Node.js, enabling agents to efficiently manage client proposals.",
+      "Led the integration of dynamic form generation, PDF exports, and client-side validation workflows for seamless agent-client communication.",
+      "Implemented CI/CD pipelines with GitHub Actions and ensured full test coverage, leading to a 30% reduction in deployment issues.",
+      "Delivered all core features with zero major bugs reported in production, ensuring reliability and stakeholder satisfaction.",
     ],
   },
 ];

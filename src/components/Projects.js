@@ -1,104 +1,95 @@
-/* eslint-disable jsx-a11y/alt-text */
 import ProjectCard from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
-import projImg4 from "../assets/img/project-img4.png";
-import projImg5 from "../assets/img/project-img5.png";
-import projImg6 from "../assets/img/project-img6.png";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn, textVariant, staggerContainer } from "../utils/motion";
 import { styles } from "../styles";
 import SectionWrapper from "../hoc/SectionWrapper.js";
+import { projects } from "../constants/projects.js";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Gebeya",
-      description:
-        "Gebeya is an e-commerece website, built with Next.js and Sanity.io with Stripe payment integration.",
-      imgUrl: projImg1,
-      url: "https://gebeya-market.vercel.app/",
-      github: "https://github.com/kecheste/Gebeya",
-    },
-    {
-      title: "Yelp Camp",
-      description:
-        "A review based campground website, built with Next.js, Node.js and MongoDB.",
-      imgUrl: projImg2,
-      url: "https://yelp-camp-kohl.vercel.app/",
-      github: "https://github.com/kecheste/YelpCamp",
-    },
-    {
-      title: "Farm-Hub",
-      description:
-        "A website to buy and sell fresh agricultural products, which has a Generative AI tool to enhance user experience.",
-      imgUrl: projImg3,
-      url: "https://farmer-hub.vercel.app/",
-      github: "https://github.com/A2SV-Farmers/Farm",
-    },
-    {
-      title: "Selam Dating App",
-      description:
-        "Selam dating is a modern dating mobile app, it's built with flutter and firebase.",
-      imgUrl: projImg4,
-      url: "",
-      github: "https://github.com/kecheste/Selam",
-    },
-    {
-      title: "Nuun Branding",
-      description: "I have created a portfolio website for Nuun Branding.",
-      imgUrl: projImg5,
-      url: "https://nuunbranding.com",
-      github: "/",
-    },
-    {
-      title: "Zemen",
-      description:
-        "Zemen is a P2P e-commerce mobile app which have got over 1000 downloads on PlayStore already.",
-      imgUrl: projImg6,
-      url: "",
-      github: "https://github.com/kecheste/Zemen",
-    },
-  ];
-
   return (
-    <section className="w-full m-0" id="work">
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>My work</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+    <motion.section
+      variants={staggerContainer()}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+      className="relative w-full mx-auto py-20 max-w-7xl"
+      id="work"
+    >
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <motion.div
+          animate={{
+            x: [0, 20, 0],
+            y: [0, -20, 0],
+            transition: { duration: 15, repeat: Infinity, ease: "linear" },
+          }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full filter blur-3xl"
+        ></motion.div>
+        <motion.div
+          animate={{
+            x: [0, -30, 0],
+            y: [0, 30, 0],
+            transition: { duration: 20, repeat: Infinity, ease: "linear" },
+          }}
+          className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full filter blur-3xl"
+        ></motion.div>
+      </div>
+
+      <motion.div variants={textVariant()} className="relative z-10 mb-16">
+        <p className={`${styles.sectionSubText} text-center`}>PORTFOLIO</p>
+        <h2 className={`${styles.sectionHeadText} text-center mb-6`}>
+          Featured <span className="text-purple-400">Projects</span>
+        </h2>
+        <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mt-4 rounded-full"></div>
       </motion.div>
 
-      <div className="w-full flex">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+      <motion.p
+        variants={fadeIn("up", "spring", 0.2, 1)}
+        className="mt-3 text-gray-400 text-lg md:text-xl max-w-4xl leading-[32px] mx-auto text-center mb-16"
+      >
+        Each project represents a unique challenge I've solved with clean code
+        and innovative thinking. Hover over cards to explore details.
+      </motion.p>
+
+      <motion.div
+        variants={staggerContainer(0.1, 0.2)}
+        className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={`project-${index}`}
+            index={index}
+            project={project}
+          />
+        ))}
+      </motion.div>
+
+      <motion.div
+        variants={fadeIn("up", "spring", projects.length * 0.1 + 0.5, 1)}
+        className="flex justify-center mt-16"
+      >
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 flex items-center group"
         >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories and live demos in it. It reflects my
-          ability to solve complex problems, work with different technologies,
-          and manage projects effectively.
-        </motion.p>
-      </div>
-      <div className="mt-20 gap-5 w-full flex flex-wrap items-center justify-center">
-        {projects.map((project, index) => {
-          return (
-            <ProjectCard
-              key={index}
-              index={index}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.imgUrl}
-              url={project.url}
-              githubUrl={project.github}
+          <span className="font-medium">Explore All Projects</span>
+          <svg
+            className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
             />
-          );
-        })}
-      </div>
-      {/* <img className="background-image-right" src={colorSharp2}></img> */}
-    </section>
+          </svg>
+        </motion.button>
+      </motion.div>
+    </motion.section>
   );
 };
 
-export default SectionWrapper(Projects, "Projects");
+export default SectionWrapper(Projects, "projects");

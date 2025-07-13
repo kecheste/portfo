@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import SectionWrapper from "../hoc/SectionWrapper.js";
 import BallCanvas from "./Ball.js";
 import { useMediaQuery } from "react-responsive";
+import resume from "../assets/pdf/resume.pdf";
 
 const Banner = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -12,24 +13,19 @@ const Banner = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(200 - Math.random() * 100);
-  const toRotate = [
-    { text: "Innovative Creator", color: "text-red-500" },
-    { text: "Tech Enthusiast", color: "text-green-500" },
-    { text: "Visionary Designer", color: "text-blue-500" },
-  ];
+
+  const toRotate = useMemo(
+    () => [
+      { text: "Innovative Creator", color: "text-red-500" },
+      { text: "Tech Enthusiast", color: "text-green-500" },
+      { text: "Visionary Designer", color: "text-blue-500" },
+    ],
+    []
+  );
+
   const period = 1000;
 
-  useEffect(() => {
-    const ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => {
-      clearInterval(ticker);
-    };
-  }, [text, delta]);
-
-  const tick = () => {
+  const tick = useCallback(() => {
     let i = loopNum % toRotate.length;
     let fullText = toRotate[i].text;
     let updatedText = isDeleting
@@ -50,9 +46,28 @@ const Banner = () => {
       setLoopNum(loopNum + 1);
       setDelta(500);
     }
-  };
+  }, [loopNum, isDeleting, text.length, toRotate, period]);
+
+  useEffect(() => {
+    const ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => {
+      clearInterval(ticker);
+    };
+  }, [text, delta, tick]);
 
   const currentColor = toRotate[loopNum % toRotate.length].color;
+
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = resume;
+    link.download = "Abenezer_Tesfaye_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <section
@@ -90,23 +105,20 @@ const Banner = () => {
         </h1>
         <p className="mt-4 text-lg text-gray-300">
           As a software engineer, I excel at solving complex challenges with
-          innovative technology. I’m passionate about creating intuitive
+          innovative technology. I'm passionate about creating intuitive
           software solutions that enhance user experiences and make technology
           accessible.
         </p>
         <motion.button
-          onClick={() => console.log("connect")}
-          className="mt-6 bg-white text-blue-600 py-3 px-6 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 flex items-center relative overflow-hidden"
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          style={{
-            backdropFilter: "blur(10px)",
-            boxShadow: "0 0 15px rgba(0, 112, 255, 0.5)",
-            border: "2px solid rgba(0, 112, 255, 0.5)",
+          onClick={handleDownloadCV}
+          className="mt-6 bg-white text-blue-600 py-3 px-6 shadow-lg hover:bg-gray-200 transition duration-300 flex items-center relative overflow-hidden border-none"
+          whileHover={{
+            boxShadow: "0 0 0 1px #3b82f6, 0 0 0 1px #3b82f6 inset",
           }}
+          aria-label="Download CV"
         >
-          <span className="relative z-10">Let’s Connect</span>
+          <span className="relative z-10">Download CV</span>
           <ArrowRightCircle size={25} className="ml-2 relative z-10" />
-          <span className="absolute inset-0 rounded-lg border-2 border-blue-600 opacity-0 transition-opacity duration-300 hover:opacity-100" />
         </motion.button>
       </motion.div>
     </section>
